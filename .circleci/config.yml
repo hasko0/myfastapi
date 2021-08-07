@@ -3,28 +3,26 @@ version: 2.1
 orbs:
   python: circleci/python@1.2
 jobs:
-  # Build Stage
+  # Build Stage-------------------------------------------------------------------------------
   build:
     working_directory: ~/circleci-project-setup
     docker:
       - image: cimg/python:3.9
     steps:
       - checkout
-      #- run: python --version
       - run:
           command: |  # use pipenv to install dependencies
             pip3 install fastapi  uvicorn
-      #      pipenv install
-      - run : cd app
-      - run: uvicorn main:app --reload 
-    # Test Stage
+            pipenv install
+      - run: python3 main.py # asuuming this is a build stage . 
+      #- run: uvicorn main:app --reload 
+    # Test Stage--------------------------------------------------------------------------------
   test:
     working_directory: ~/circleci-project-setup
     docker:
       - image: cimg/python:3.9
     steps:
       - checkout
-      #- run: python --version
       - run:
           command: |  # use pipenv to install dependencies
             pip3 install fastapi pytest 
