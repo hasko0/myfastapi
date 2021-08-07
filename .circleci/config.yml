@@ -12,7 +12,7 @@ jobs:
       #- run: python --version
       - run:
           command: |  # use pipenv to install dependencies
-            pip3 install fastapi pytst uvicorn[standard]
+            pip3 install fastapi pytst uvicorn
             pip3 install pytest
             pipenv install 
       - run: uvicorn main:app --reload
