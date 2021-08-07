@@ -30,8 +30,9 @@ jobs:
       - run: python3 -m pytest
   
 workflows:
-  main:
+  build-and-test:
     jobs:
-      - test
       - build
+      - test
       
+       
