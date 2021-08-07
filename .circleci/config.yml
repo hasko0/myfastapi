@@ -15,12 +15,7 @@ jobs:
           command: |  # use pipenv to install dependencies
             pip3 install fastapi  uvicorn
       #      pipenv install
-      - run: app.main:app
-      - run: EXPOSE 80
-      - run: COPY ./app /app
-      - run: CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
-
-    #  - run: uvicorn main:app --reload
+      - run: uvicorn main:app --reload
     # Test Stage
   test:
     working_directory: ~/circleci-project-setup
