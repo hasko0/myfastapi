@@ -14,7 +14,7 @@ jobs:
           command: |  # use pipenv to install dependencies
             pip3 install fastapi  uvicorn
             pipenv install
-      - run: python3 cd ../main.py # asuuming this is a build stage . 
+      #- run: python3 main.py # asuuming this is a build stage . 
       #- run: uvicorn main:app --reload 
     # Test Stage--------------------------------------------------------------------------------
   test:
