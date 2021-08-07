@@ -3,6 +3,7 @@ version: 2.1
 orbs:
   python: circleci/python@1.2
 jobs:
+  # Build Stage
   build:
     working_directory: ~/circleci-project-setup
     docker:
@@ -13,9 +14,14 @@ jobs:
       - run:
           command: |  # use pipenv to install dependencies
             pip3 install fastapi  uvicorn
-            pipenv install 
-      - run: uvicorn main:app --reload
-      
+      #      pipenv install
+      - run: app.main:app
+      - run: EXPOSE 80
+      - run: COPY ./app /app
+      - run: CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+
+    #  - run: uvicorn main:app --reload
+    # Test Stage
   test:
     working_directory: ~/circleci-project-setup
     docker:
