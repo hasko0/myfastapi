@@ -32,5 +32,6 @@ jobs:
 workflows:
   main:
     jobs:
-      - build
       - test
+      - build
+      
