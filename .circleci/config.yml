@@ -9,14 +9,13 @@ jobs:
       - image: cimg/python:3.9
     steps:
       - checkout
-      - run: python --version
+      #- run: python --version
       - run:
           command: |  # use pipenv to install dependencies
-            pip3 install fastapi
+            pip3 install fastapi pytst uvicorn[standard]
             pip3 install pytest
-            pipenv install
-          
-        
+            pipenv install 
+      - run: uvicorn main:app --reload
   
 workflows:
   main:
