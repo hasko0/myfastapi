@@ -12,7 +12,9 @@ jobs:
       - run: python --version
       - run:
           command: |  # use pipenv to install dependencies
-            pip3 install fastapi pipenv
+            pip3 install fastapi
+            pip3 install pytest
+            pipenv install
           
         
   
